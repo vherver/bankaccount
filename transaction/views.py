@@ -27,8 +27,7 @@ class UploadCSV(APIView):
         if csv_file:
             try:
                 transactions = convert_csv_to_dict(csv_file)
-                create_transactions(transactions)
-
+                context["invalid_transactions"] = create_transactions(transactions)
 
             except Exception as e:
                 context["error"] = e
