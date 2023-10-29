@@ -40,7 +40,7 @@ class Transaction(TimeStampMixin):
     amount = models.DecimalField(max_digits=20, decimal_places=2)
     date = models.DateField()
 
-    account = models.OneToOneField(
+    account = models.ForeignKey(
         "account.Account", on_delete=models.CASCADE
     )
 

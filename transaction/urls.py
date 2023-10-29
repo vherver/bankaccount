@@ -1,9 +1,10 @@
 from django.urls import path
 
-from transaction.views import MyTemplateView
+from transaction.views import UploadCSVTemplateView, UploadCSV
 
 app_name = "transaction"
 
 urlpatterns = [
-    path("transaction-list/", MyTemplateView.as_view(), name="mi-endpoint"),
+    path("transaction-list/", UploadCSVTemplateView.as_view(), name="mi-endpoint"),
+    path('upload-csv/', UploadCSV.as_view(), name='upload-csv'),
 ]
