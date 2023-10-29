@@ -33,7 +33,7 @@ class Transaction(TimeStampMixin):
     )
     date = models.DateField()
 
-    account = models.OneToOneField("account.Account", on_delete=models.CASCADE())
+    account = models.OneToOneField("account.Account", on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Transaction"
