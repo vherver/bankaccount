@@ -38,5 +38,34 @@
                 </div>
             </div>
         {% endif %}
+        {% if invalid_transactions %}
+            <div class="card yellow lighten-1">
+                <div class="card-content">
+                    <span class="card-title">Alerta</span>
+                    <p>No se pudo procesar las siguientes transacciones</p>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Fecha</th>
+                            <th>Monto</th>
+                            <th>Error</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for invalid_transaction in invalid_transactions %}
+                        <tr>
+                            <td>{{ invalid_transaction.account }}</td>
+                            <td>{{ invalid_transaction.date }}</td>
+                            <td>{{ invalid_transaction.amount }}</td>
+                            <td>{{ invalid_transaction.error }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
