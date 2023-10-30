@@ -38,6 +38,14 @@
                 </div>
             </div>
         {% endif %}
+        {% if custom_error %}
+            <div class="card red lighten-1 white-text">
+                <div class="card-content">
+                    <span class="card-title">Error</span>
+                    <p>{{ custom_error }}</p>
+                </div>
+            </div>
+        {% endif %}
         {% if invalid_transactions %}
             <div class="card yellow lighten-1">
                 <div class="card-content">
