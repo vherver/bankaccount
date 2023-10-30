@@ -7,7 +7,7 @@ from account.utils.manage_acounts import get_account
 
 class TestGetAccount(TestCase):
     def setUp(self):
-        self.email = "test@example.com"
+        self.email = "test@examples.com"
         self.account = Account.objects.create(email=self.email)
 
     def test_get_existing_account(self):
