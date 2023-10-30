@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
+import sys
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -150,3 +151,14 @@ SENDGRID_API_KEY = os.environ.get(
     "SENDGRID_API_KEY",
     "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",
 )
+
+
+if 'test' in sys.argv or 'pytest' in sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'test',
+        'USER': 'test',
+        'PASSWORD': 'test',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
