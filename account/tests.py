@@ -17,7 +17,7 @@ class TestGetAccount(TestCase):
     def test_get_non_existing_account(self):
         non_existent_email = "nonexistent@example.com"
         retrieved_account = get_account(non_existent_email)
-        self.assertEqual(retrieved_account.email, self.email)
+        self.assertEqual(retrieved_account.email, non_existent_email)
 
 
 if __name__ == "__main__":
