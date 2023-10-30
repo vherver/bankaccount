@@ -1,9 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from rest_framework import status
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.permissions import AllowAny
-from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from account.utils.manage_comunication import send_account_email
@@ -42,9 +40,8 @@ class UploadCSV(APIView):
             return render(request, "index.html", context)
 
         else:
-            context["custom_error"] = "No se proporcionó un archivo CSV válido." #noqa
+            context["custom_error"] = "No se proporcionó un archivo CSV válido." # noqa
             return render(request, "index.html", context)
-
 
     def get(self, request):
         context = {"custom_error": "GET no es un metodo valido"}
