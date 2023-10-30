@@ -160,5 +160,5 @@ if 'test' in sys.argv or 'pytest' in sys.argv:
         'USER': 'test',
         'PASSWORD': 'test',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '5432 ',
     }
