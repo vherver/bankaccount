@@ -52,5 +52,6 @@ def send_account_email(accounts):
 
         try:
             SendGridAPIClient(settings.SENDGRID_API_KEY)
+            print("Mensaje enviado")
         except Exception as e:
             print(e.message)

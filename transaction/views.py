@@ -42,7 +42,10 @@ class UploadCSV(APIView):
             return render(request, "index.html", context)
 
         else:
-            return Response(
-                {"message": "No se proporcionó un archivo CSV válido."},
-                status=status.HTTP_400_BAD_REQUEST,
-            )
+            context["custom_error"] = "No se proporcionó un archivo CSV válido." #noqa
+            return render(request, "index.html", context)
+
+
+    def get(self, request):
+        context = {"custom_error": "GET no es un metodo valido"}
+        return render(request, "index.html", context)
