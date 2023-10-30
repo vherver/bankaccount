@@ -132,7 +132,19 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Rest framework config
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly",
     ]
 }
+
+# SENDGRID INTEGRATION
+SENDGRID_FROM_EMAIL = os.environ.get(
+    "SENDGRID_FROM_EMAIL", "victorherverplay@gmail.com"
+)
+SENDGRID_TEMPLATE_ID = os.environ.get(
+    "SENDGRID_TEMPLATE_ID", "d-9003c7e7646a4f7ead07a0149bafdca7"
+)
+SENDGRID_API_KEY = os.environ.get(
+    "SENDGRID_API_KEY",
+    "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",
+)

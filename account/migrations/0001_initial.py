@@ -23,7 +23,10 @@ class Migration(migrations.Migration):
                 ),
                 ("created", models.DateTimeField(auto_now_add=True)),
                 ("updated", models.DateTimeField(auto_now=True)),
-                ("deleted", models.DateTimeField(blank=True, default=None, null=True)),
+                (
+                    "deleted",
+                    models.DateTimeField(blank=True, default=None, null=True),
+                ),
                 ("email", models.EmailField(max_length=254, unique=True)),
             ],
             options={

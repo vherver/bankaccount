@@ -41,7 +41,9 @@ class Transaction(TimeStampMixin):
     date = models.DateField()
 
     account = models.ForeignKey(
-        "account.Account", on_delete=models.CASCADE
+        "account.Account",
+        on_delete=models.CASCADE,
+        related_name="transactions",
     )
 
     class Meta:
