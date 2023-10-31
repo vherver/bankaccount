@@ -37,4 +37,3 @@ docker-compose up
 ```
 
 El proyecto correrá en localhost:8000
-

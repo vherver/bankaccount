@@ -27,6 +27,7 @@ class UploadCSV(APIView):
         context = {}
         if csv_file and csv_file.content_type == "text/csv":
             try:
+                context["file_loaded"] = True
                 transactions = convert_csv_to_dict(csv_file)
                 validate_transaction_csv_headers(transactions)
                 (

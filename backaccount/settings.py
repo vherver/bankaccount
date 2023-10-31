@@ -51,6 +51,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "backaccount.middlewares.Middleware404",
+
 ]
 
 ROOT_URLCONF = "backaccount.urls"
@@ -151,9 +153,3 @@ if "test" in sys.argv or "pytest" in sys.argv:
             "NAME": BASE_DIR / "db.sqlite3",
         }
     }
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
-}

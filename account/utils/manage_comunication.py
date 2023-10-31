@@ -61,7 +61,8 @@ def send_account_email(accounts):
         message.template_id = settings.SENDGRID_TEMPLATE_ID
 
         try:
-            SendGridAPIClient(settings.SENDGRID_API_KEY)
+            sg = SendGridAPIClient(settings.SENDGRID_API_KEY)
+            response = sg.send(message)
         except Exception as e:
             messages_data["sending_errors"].append(
                 {"email": account.email, "reason": e}

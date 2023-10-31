@@ -99,5 +99,13 @@
                 </table>
             </div>
         {% endif %}
+        {% if not error and not custom_error and not invalid_transactions and not sending_errors and file_loaded%}
+            <div class="card green lighten-1">
+                <div class="card-content">
+                    <span class="card-title">Confirmación</span>
+                    <p>Se procesaron y enviaron todas las transacciones</p>
+                </div>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
