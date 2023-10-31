@@ -75,5 +75,37 @@
                 </table>
             </div>
         {% endif %}
+        {% if sending_errors %}
+            <div class="card yellow lighten-1">
+                <div class="card-content">
+                    <span class="card-title">Alerta</span>
+                    <p>No se pudo enviar los siguientes correos</p>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Razón</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for sending_error in sending_errors %}
+                        <tr>
+                            <td>{{ sending_error.email }}</td>
+                            <td>{{ sending_error.reason }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% endif %}
+        {% if not error and not custom_error and not invalid_transactions and not sending_errors and file_loaded%}
+            <div class="card green lighten-1">
+                <div class="card-content">
+                    <span class="card-title">Confirmación</span>
+                    <p>Se procesaron y enviaron todas las transacciones</p>
+                </div>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}

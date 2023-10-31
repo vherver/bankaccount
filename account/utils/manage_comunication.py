@@ -31,6 +31,16 @@ def send_account_email(accounts):
       in your SendGrid settings.
     """
 
+    messages_data = {"sending_errors": []}
+    if not (
+        settings.SENDGRID_FROM_EMAIL
+        and settings.SENDGRID_TEMPLATE_ID
+        and settings.SENDGRID_API_KEY
+    ):
+        messages_data[
+            "custom_error"
+        ] = "Sendgrid no esta configurado correctamente"
+
     for account in accounts:
         account = accounts[account]
         data = {
@@ -51,7 +61,11 @@ def send_account_email(accounts):
         message.template_id = settings.SENDGRID_TEMPLATE_ID
 
         try:
-            SendGridAPIClient(settings.SENDGRID_API_KEY)
-            print("Mensaje enviado")
+            sg = SendGridAPIClient(settings.SENDGRID_API_KEY)
+            response = sg.send(message)
         except Exception as e:
-            print(e.message)
+            messages_data["sending_errors"].append(
+                {"email": account.email, "reason": e}
+            )
+
+    return messages_data

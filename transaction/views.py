@@ -27,13 +27,14 @@ class UploadCSV(APIView):
         context = {}
         if csv_file and csv_file.content_type == "text/csv":
             try:
+                context["file_loaded"] = True
                 transactions = convert_csv_to_dict(csv_file)
                 validate_transaction_csv_headers(transactions)
                 (
                     context["invalid_transactions"],
                     accounts,
                 ) = create_transactions(transactions)
-                send_account_email(accounts)
+                context.update(send_account_email(accounts))
             except Exception as e:
                 context["error"] = e
 
