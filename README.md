@@ -1,7 +1,4 @@
 
-![GitHub Actions](https://github.com/vherver/bankaccount/workflows/django/badge.svg)
-
-
 Este proyecto tiene la capacidad de recibir un archivo csv para crear una cuenta y sus transacciones, una vez procesadas y almacenadas en la base de datos enviara un resumen de todas las transacciones existentes en la cuenta (no solo las enviadas en el csv)
 
 El csv deberá estar conformado de la siguiente manera

@@ -21,9 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = (
-    "django-insecure-jxqb1htxpfvu^j#v=8fo+ro0(z4*y+-ceu3vypwbreh@wax=sh"
-)
+SECRET_KEY = os.environ.get("SECRET_KEY", "my_secret")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -141,16 +139,9 @@ REST_FRAMEWORK = {
 }
 
 # SENDGRID INTEGRATION
-SENDGRID_FROM_EMAIL = os.environ.get(
-    "SENDGRID_FROM_EMAIL", "victorherverplay@gmail.com"
-)
-SENDGRID_TEMPLATE_ID = os.environ.get(
-    "SENDGRID_TEMPLATE_ID", "d-9003c7e7646a4f7ead07a0149bafdca7"
-)
-SENDGRID_API_KEY = os.environ.get(
-    "SENDGRID_API_KEY",
-    "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",
-)
+SENDGRID_FROM_EMAIL = os.environ.get("SENDGRID_FROM_EMAIL", "")
+SENDGRID_TEMPLATE_ID = os.environ.get("SENDGRID_TEMPLATE_ID", "")
+SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY", "")
 
 
 if "test" in sys.argv or "pytest" in sys.argv:
@@ -160,7 +151,6 @@ if "test" in sys.argv or "pytest" in sys.argv:
             "NAME": BASE_DIR / "db.sqlite3",
         }
     }
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
