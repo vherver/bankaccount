@@ -1,5 +1,4 @@
 SECRET_KEY=django-insecure-jxqb1htxpfvu^j#v=8fo+ro0(z4*y+-ceu3vypwbreh@wax=sh
 SENDGRID_FROM_EMAIL=victorherverplay@gmail.com
 SENDGRID_TEMPLATE_ID=d-9003c7e7646a4f7ead07a0149bafdca7
-SENDGRID_API_KEY=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
-
+SENDGRID_API_KEY=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
