@@ -9,6 +9,7 @@ from transaction.models import Transaction
 from transaction.utils.csv_manager import (
     create_transactions,
     convert_csv_to_dict,
+    validate_transaction_csv_headers,
 )
 
 
@@ -24,23 +25,24 @@ class UploadCSV(APIView):
     def post(self, request):
         csv_file = request.data.get("csv_file")
         context = {}
-        if csv_file:
+        if csv_file and csv_file.content_type == "text/csv":
             try:
                 transactions = convert_csv_to_dict(csv_file)
+                validate_transaction_csv_headers(transactions)
                 (
                     context["invalid_transactions"],
                     accounts,
                 ) = create_transactions(transactions)
-
+                send_account_email(accounts)
             except Exception as e:
                 context["error"] = e
-
-            send_account_email(accounts)
 
             return render(request, "index.html", context)
 
         else:
-            context["custom_error"] = "No se proporcionó un archivo CSV válido." # noqa
+            context[
+                "custom_error"
+            ] = "No se proporcionó un archivo CSV válido."  # noqa
             return render(request, "index.html", context)
 
     def get(self, request):

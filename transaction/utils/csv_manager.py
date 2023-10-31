@@ -84,3 +84,13 @@ def convert_csv_to_dict(csv_file):
     decoded_file = csv_file.read().decode("utf-8").splitlines()
     csv_data = list(csv.DictReader(decoded_file))
     return csv_data
+
+
+def validate_transaction_csv_headers(dict_csv):
+    if len(dict_csv) > 0 and (
+        set(["account", "date", "amount"]) - set(dict_csv[0].keys())
+    ):
+        raise ValueError(
+            "Los encabezados del csv no son correctos, "
+            "verificarlos (account, date, amount)"
+        )
