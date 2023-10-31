@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+        </style>
+        <style>
+            table {
+                border-collapse: collapse;
+            }
+            table td {
+                padding: 0;
+            }
+            table th {
+                padding: 0;
+                font-weight: normal;
+            }
+            img {
+                border: 0;
+                outline: 0;
+                color: #2837b8;
+                font-size: 14px;
+            }
+            ol,
+            ul {
+                /* We don't touch horizontal margins to prevent hiding bullets in Oultook */
+                margin-top: 1em;
+                margin-bottom: 2em;
+            }
+            ol li,
+            ul li {
+                line-height: 1.6em;
+                margin: 0.5em 0;
+            }
+            p {
+                line-height: 1.6em;
+                margin: 1em 0;
+            }
+            span.code {
+                /* Monospace emphasis for code examples */
+                font-family: consolas, courier, monospace;
+                color: grey;
+            }
+            @media screen and (max-width: 600px) {
+                u + .body {
+                    /* iOS Gmail viewport fix */
+                    /* Make sure that your body element has .body class */
+                    width: 100vw !important;
+                }
+            }
+            a[x-apple-data-detectors=true] {
+                /* Set default text color inheritance for auto-detected iOS links like date, time, address, etc */
+                color: inherit;
+                text-decoration: inherit;
+                border-bottom: none;
+            }
+            body {
+                /* Set native platform font styling */
+                font-family: Roboto, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+                font-size: 16px;
+                color: black;
+            }
+            .webkit {
+                /* Webkit and Microsoft font-size fix */
+                width: 100%;
+                table-layout: fixed;
+                -webkit-text-size-adjust: 100%;
+                -ms-text-size-adjust: 100%;
+            }
+        </style>
+        <style>
+            body {
+                /* Reset font styling. Useful when we links custom fonts to our newsletter */
+                font-family: Roboto, Helvetica, Arial, sans-serif;
+            }
+            a {
+                /* Reset default links styling */
+                color: #2837b8;
+                text-decoration: underline;
+            }
+            h1, h2, h3, h4, h5, h6 {
+                /* Reset default headings margin */
+                margin: .5em 0;
+            }
+            img {
+                /* Scaled images fix */
+                -ms-interpolation-mode: bicubic;
+            }
+            table {
+                /* Null tables spaces */
+                border-collapse: collapse;
+            }
+            .information-tb {
+                border-collapse: collapse;
+                border-radius: 8px;
+                border: 1px solid #828282;
+            }
+            .information-tb td{
+                padding:10px 5px;
+            }
+            .information-tb td.name-key {
+                text-align: left;
+                border: 1px solid #F8F8F8;
+                border-right: none;
+                font-size: 14px;
+                color: #4F4F4F;
+            }
+            .information-tb td.result {
+                text-align: right;
+                border: 1px solid #F8F8F8;
+                border-left: none;
+                font-weight: bold;
+                font-size: 16px;
+                color: #333333;
+            }
+            .information-tb td.reject_reasons {
+                text-align: left;
+                border: 1px solid #F8F8F8;
+                font-size: 12px;
+                color: #828282;
+            }
+        </style>
+    </head>
+    <body style="font-family: Roboto, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size: 16px;color: black;">
+        <center>
+            <table><tr><td width="600">
+                <div style="max-width:600px; margin:20px auto;">
+                    <table id="main-wrapper" style="min-width: 100%; table-layout: fixed;" border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <td id="main-cell" style="" bgcolor="#FFFFFF" valign="top" align="center">
+                                <table id="container-wrapper" style="" width="541" height="344" border="0" cellpadding="0" cellspacing="0">
+                                    <tr height="344" bgcolor="#FFFFFF">
+                                        <td style="padding-top: 36px;" bgcolor="#FFFFFF" valign="top">
+                                            <table width="100%" bgcolor="#FFFFFF">
+                                                <tr>
+                                                    <td align="left" style="padding: 40px 70px; padding-top: 40px; padding-bottom: 40px; padding-left: 70px; padding-right: 70px; border-radius: 8px 8px 0px 0px;" bgcolor="#00c7b1">
+                                                        <img src="https://www.storicard.com/_next/static/media/complete-logo.0f6b7ce5.svg" alt="" style="margin-bottom:24px;">
+                                                        <br>
+                                                        <strong style="font-size: 36px; line-height: 36px; font-weight: 800; color: #FFFFFF;">
+                                                            Estado de cuenta
+                                                        </strong>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left" style="padding: 20px 70px; padding-top: 40px; padding-bottom: 12px; padding-left: 20px; padding-right: 20px; color: #4F4F4F; font-size: 14px">
+                                                        ¡Hola {{email}}!
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left" style="padding-top: 20px; padding-left: 20px; padding-right: 20px;">
+                                                        <strong style="font-size: 16px; line-height: 16px;">
+                                                            Información
+                                                        </strong>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left" style="padding: 20px 70px; padding-left: 20px; padding-right: 20px;">
+                                                        <table class="information-tb" width="100%">
+                                                            <tr>
+                                                                <td class="name-key">Saldo</td>
+                                                                <td class="result">{{balance}}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="name-key">Promedio credito</td>
+                                                                <td class="result">{{avg_credit}}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="name-key">Promedio debito</td>
+                                                                <td class="result">{{avg_debit}}</td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+
+                                                {{#each months}}
+                                                <tr>
+                                                    <td align="left" style="padding-top: 10px; padding-left: 20px; padding-right: 20px;">
+                                                        <strong style="font-size: 16px; line-height: 16px; color: #333333">
+                                                            {{name}} / {{year}}
+                                                        </strong>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left" style="padding: 20px 70px; padding-left: 20px; padding-right: 20px;">
+                                                        <table class="information-tb" width="100%">
+                                                            <tr>
+                                                                <td class="name-key">transactions</td>
+                                                                <td class="result">{{transactions}}</td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                {{/each}}
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </table>
+        </center>
+    </body>
+</html>
